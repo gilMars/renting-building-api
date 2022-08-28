@@ -130,5 +130,5 @@ dmypy.json
 
 
 # DUmmy project files
-.db
+*.db
 .idea
