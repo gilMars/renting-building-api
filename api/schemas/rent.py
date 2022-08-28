@@ -2,10 +2,10 @@ from datetime import datetime
 
 from pydantic import BaseModel
 
-from schemas.building import Building
-from schemas.payment import Payment
-from schemas.review import Review
-from schemas.user import User
+from api.schemas.building import Building
+from api.schemas.payment import Payment
+from api.schemas.review import Review
+from api.schemas.user import User
 
 
 class Rent(BaseModel):

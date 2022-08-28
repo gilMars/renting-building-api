@@ -4,9 +4,9 @@ from typing import List
 from fastapi import APIRouter, Depends
 from requests import Session
 
-import schemas
-from database.config import get_db
-from repositories.repository_facade import RepositoryFacade
+from api import schemas
+from api.database.config import get_db
+from api.repositories.repository_facade import RepositoryFacade
 
 router = APIRouter()
 
@@ -17,6 +17,6 @@ async def create_building(user_id: int, building_to_insert: schemas.building.Bui
     return RepositoryFacade.create_building(db, building_to_insert, user_id)
 
 
-@router.get('/buildings', response_model=List[schemas.building.Building])
-async def list_buildings(db: Session = Depends(get_db)):
-    return RepositoryFacade.list_buildings(db)
+@router.get('/buildings')
+async def list_buildings(db: Session = Depends(get_db), offset: int = 0, limit: int = 100):
+    return RepositoryFacade.list_buildings(db, offset, limit)

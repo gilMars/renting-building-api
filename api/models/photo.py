@@ -1,7 +1,7 @@
 from sqlalchemy import Integer, Column, String, ForeignKey
 from sqlalchemy.orm import relationship
 
-from database.config import Base
+from api.database.config import Base
 
 
 class Photo(Base):

@@ -4,10 +4,10 @@ from typing import List
 from fastapi import APIRouter, Depends
 from requests import Session
 
-import schemas
-from database.config import get_db
-from repositories.repository_facade import RepositoryFacade
-from schemas.user import UserBase
+from api import schemas
+from api.database.config import get_db
+from api.repositories.repository_facade import RepositoryFacade
+from api.schemas.user import UserBase
 
 router = APIRouter(
     prefix='/users',
@@ -15,9 +15,9 @@ router = APIRouter(
 )
 
 
-@router.get('/', response_model=List[schemas.user.User])
-async def users(db: Session = Depends(get_db)):
-    return RepositoryFacade.list_users(db)
+@router.get('/')
+async def users(db: Session = Depends(get_db), offset: int = 0, limit: int = 100):
+    return RepositoryFacade.list_users(db, offset, limit)
 
 
 @router.get('/{user_id}', response_model=schemas.user.User)

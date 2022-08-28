@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 
-from database import config
-from database.config import engine
-from routes import buildings, users
+from api.database import config
+from api.database.config import engine
+from api.routes import buildings, users
 
 app = FastAPI()
 

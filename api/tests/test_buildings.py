@@ -2,7 +2,7 @@ import http
 import unittest
 import uuid
 
-from tests.common import client
+from api.tests.common import client
 
 
 class TestBuilding(unittest.TestCase):
@@ -15,7 +15,7 @@ class TestBuilding(unittest.TestCase):
             'cellphone': '0800',
         }
         response = client.post(
-            '/users',
+            '/users/',
             json=create_user_body,
         )
 

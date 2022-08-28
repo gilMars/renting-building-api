@@ -1,9 +1,8 @@
 import datetime
 
-from sqlalchemy import Integer, Column, String, ForeignKey, DateTime
-from sqlalchemy.orm import relationship
+from sqlalchemy import Integer, Column, String, DateTime
 
-from database.config import Base
+from api.database.config import Base
 
 
 class Payment(Base):

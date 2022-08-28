@@ -1,7 +1,7 @@
 from sqlalchemy import Integer, Column, String, ForeignKey
 from sqlalchemy.orm import relationship
 
-from database.config import Base
+from api.database.config import Base
 
 
 class Building(Base):
@@ -15,4 +15,3 @@ class Building(Base):
     owner_id = Column(Integer, ForeignKey('users.id'))
     owner = relationship('User', back_populates='buildings')
     photos = relationship('Photo', back_populates='building')
-    

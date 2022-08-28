@@ -2,7 +2,8 @@ from typing import List
 
 from pydantic import BaseModel
 
-from schemas.building import Building
+from api.schemas.building import Building
+from api.schemas.list_response import ListResponse
 
 
 class UserBase(BaseModel):
@@ -21,3 +22,7 @@ class User(UserBase):
 
     class Config:
         orm_mode = True
+
+
+class ListUserResponse(ListResponse):
+    items: List[User] = []

@@ -2,7 +2,7 @@ from datetime import datetime
 
 from pydantic import BaseModel
 
-from schemas.user import User
+from api.schemas.user import User
 
 
 class Payment(BaseModel):

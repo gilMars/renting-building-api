@@ -1,7 +1,6 @@
-from sqlalchemy import Integer, Column, String, ForeignKey
-from sqlalchemy.orm import relationship
+from sqlalchemy import Integer, Column, String
 
-from database.config import Base
+from api.database.config import Base
 
 
 class Review(Base):

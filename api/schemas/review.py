@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
-from schemas.rent import Rent
-from schemas.user import User
+from api.schemas.rent import Rent
+from api.schemas.user import User
 
 
 class Review(BaseModel):

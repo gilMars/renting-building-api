@@ -1,9 +1,9 @@
 from sqlalchemy.orm import Session
 
-from repositories.building_repo import BuildingRepository
-from repositories.user_repo import UserRepository
-from schemas.building import BuildingBase
-from schemas.user import UserBase
+from api.repositories.building_repo import BuildingRepository
+from api.repositories.user_repo import UserRepository
+from api.schemas.building import BuildingBase
+from api.schemas.user import UserBase
 
 
 class RepositoryFacade:
@@ -13,8 +13,8 @@ class RepositoryFacade:
         return UserRepository.get_user(db, user_id)
 
     @staticmethod
-    def list_users(db: Session):
-        return UserRepository.list_users(db)
+    def list_users(db: Session, offset: int, limit: int):
+        return UserRepository.list_users(db, offset, limit)
 
     @staticmethod
     def create_user(db: Session, user: UserBase):
@@ -25,5 +25,5 @@ class RepositoryFacade:
         return BuildingRepository.create_building(db, building, user_id)
 
     @staticmethod
-    def list_buildings(db: Session):
-        return BuildingRepository.list_buildings(db)
+    def list_buildings(db: Session, offset: int, limit: int):
+        return BuildingRepository.list_buildings(db, offset, limit)

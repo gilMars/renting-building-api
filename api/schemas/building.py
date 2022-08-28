@@ -2,7 +2,8 @@ from typing import List
 
 from pydantic import BaseModel
 
-from schemas.photo import Photo
+from api.schemas.list_response import ListResponse
+from api.schemas.photo import Photo
 
 
 class BuildingBase(BaseModel):
@@ -18,3 +19,7 @@ class Building(BuildingBase):
 
     class Config:
         orm_mode = True
+
+
+class ListBuildingResponse(ListResponse):
+    items: List[Building] = []
